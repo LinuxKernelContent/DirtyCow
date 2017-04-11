@@ -74,15 +74,15 @@ int main(int argc,char *argv[])
   pthread_t pth1,pth2;
 
 
-  f=open(&etc_passwd,O_RDONLY);
+  f=open(etc_passwd,O_RDONLY);
   fstat(f,&st);
 
   map=mmap(NULL,st.st_size,PROT_READ,MAP_PRIVATE,f,0);
   printf("mmap %zx\n\n",(uintptr_t) map);
 
 
-  pthread_create(&pth1,NULL,madviseThread,etc_passwd);
-  pthread_create(&pth2,NULL,procselfmemThread,passwd);
+  pthread_create(&pth1,NULL,madviseThread, &etc_passwd);
+  pthread_create(&pth2,NULL,procselfmemThread, &passwd);
   pthread_join(pth1,NULL);
   pthread_join(pth2,NULL);
   return 0;
