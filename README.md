@@ -1,6 +1,6 @@
 # DirtyCow - Exploit
 
-Below code takes advantage of a knowמ vulnerability [Dirty COW (CVE-2016-5195)] to escalate privileges and get root access.
+Below code takes advantage of a known vulnerability [Dirty COW (CVE-2016-5195)] to escalate privileges and get root access.
 
 Before running, uncomment sc for your platform within main.c.
 
