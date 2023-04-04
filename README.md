@@ -6,5 +6,3 @@ Before running, uncomment sc for your platform within main.c.
 
 Compilation:
 gcc main.c -o dirtycow -lpthread
-
-
